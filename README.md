@@ -29,12 +29,12 @@ City Explorer allows the user to enter a city of interest and see the latitute, 
 Name of feature: 1. Set up repository and API keys
 Estimate of time needed to complete: 45 min
 Start time: 3:30pm
-Finish time: _____
-Actual time needed to complete: _____
+Finish time: 4:30pm
+Actual time needed to complete: 60 min
 
 Name of feature: 2. Display lat and long
 Estimate of time needed to complete: 60 min
-Start time: ____
+Start time: 4:30pm
 Finish time: _____
 Actual time needed to complete: _____
 
