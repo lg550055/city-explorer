@@ -1,3 +1,11 @@
 * {
   text-align: center;
+  color: azure;
+  background-color: cadetblue;
 }
+
+h1 {
+  font-size: 3vh;
+  padding: 5vh 0 1vh;
+}
+
