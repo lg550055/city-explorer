@@ -34,7 +34,7 @@ class App extends React.Component {
       let cityResults = await axios.get(url);
       this.setState({ cityInfo: cityResults.data[0] });
       
-      let mapUrl = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITY_KEY}&center=${this.state.cityInfo.lat},${this.state.cityInfo.lon}&zoom=9`
+      let mapUrl = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_CITY_KEY}&center=${this.state.cityInfo.lat},${this.state.cityInfo.lon}&zoom=11`
       this.setState({ mapUrl: mapUrl})
 
     } catch(error) {
