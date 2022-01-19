@@ -26,6 +26,7 @@ class App extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.getCity();
+    this.getWeather();
   }
 
   getCity = async () => {
@@ -45,6 +46,13 @@ class App extends React.Component {
       })
     }
   }  
+
+  getWeather = async () => {
+    let url = `${process.env.REACT_APP_SERVER_URL}/weather?city=${this.state.city}`;
+    let weatherForecast = await axios.get(url);
+    console.log(weatherForecast.data);
+    this.setState({forecast: weatherForecast.data})
+  }
 
   render() {
     return(
