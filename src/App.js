@@ -2,9 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 import { Form, Button, Card, Alert, ListGroup} from 'react-bootstrap';
-// import Button from 'react-bootstrap/Button';
-// import Card from 'react-bootstrap/Card';
-// import Alert from 'react-bootstrap/Alert';
 
 class App extends React.Component {
   constructor(props){
