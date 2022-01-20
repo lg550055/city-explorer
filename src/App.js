@@ -24,8 +24,7 @@ class App extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     this.setState({ showCity: true });
-    this.getCityInfo();
-    this.getWeather();
+    this.getCityInfo().then(() => this.getWeather());
     this.getMovies();
   }
 
