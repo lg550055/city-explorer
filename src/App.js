@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-import { Form, Button, Card, Alert, ListGroup} from 'react-bootstrap';
+import { Form, Col, Button, Card, Alert, ListGroup, Row} from 'react-bootstrap';
 
 class App extends React.Component {
   constructor(props){
@@ -61,13 +61,13 @@ class App extends React.Component {
   render() {
     let forecastList = this.state.forecast.map((e, i) => (
       <ListGroup.Item key={i}>
-        {e.date} {e.description} {e.low}-{e.high}C
+        {e.date} . {e.description} . {e.low} / {e.high} C
       </ListGroup.Item>
     ))
 
     let movieList = this.state.movies.map((e, i) => (
       <ListGroup.Item key={i+9}>
-        {e.title} - {e.date} popularity: {e.popularity}
+        {e.title} ({e.date.substring(0,4)}) Popularity: {Math.round(e.popularity)}
       </ListGroup.Item>
     ))
 
@@ -75,36 +75,45 @@ class App extends React.Component {
       <>
         <h1>Which city would you like to explore?</h1>
         <Alert show={this.state.showAlert}>{this.state.errorStatus}, {this.state.errorData}</Alert>
-        <Form style={{width: '300px', margin: 'auto'}} onSubmit={this.handleSubmit}>
-          <Form.Group style={{margin: '2vh'}}>
-            <Form.Label>Enter a city name</Form.Label>
-            <Form.Control type="text" onInput={this.handleCity}></Form.Control>
-          </Form.Group>
-          <Button variant="light" type="submit">Explore!</Button>
+        <Form style={{width: '360px', margin: '2vh auto'}} onSubmit={this.handleSubmit}>
+          <Row>
+            <Col xs={7}>
+              <Form.Control type="text" onInput={this.handleCity} placeholder='Enter city name' style={{display: 'inline'}}></Form.Control>
+            </Col>
+            <Col>
+              <Button variant="light" type="submit">Explore!</Button>
+            </Col>
+          </Row>
         </Form>
         {
           this.state.showCity &&
-          <Card style={{width: '50vh', margin: '4vh auto'}}>
-            <Card.Body>
-              <Card.Title>{this.state.cityInfo.display_name}</Card.Title>
-              <Card.Text>
-                Latitude: {this.state.cityInfo.lat}, Longitude: {this.state.cityInfo.lon}
-              </Card.Text>
-            </Card.Body>
-            <Card.Img variant="bottom" src={this.state.mapUrl} />
-          </Card>
-        }
-        {
-          this.state.forecast &&
-          <ListGroup style={{width: '50vh', margin: 'auto'}}>
-            {forecastList}
-          </ListGroup>
-        }
-        {
-          this.state.movies &&
-          <ListGroup style={{width: '50vh', margin: 'auto'}}>
-            {movieList}
-          </ListGroup>
+          <div>
+            <Card style={{width: '50vh', margin: '4vh auto'}}>
+              <Card.Body>
+                <Card.Title>{this.state.cityInfo.display_name}</Card.Title>
+                <Card.Text>
+                  Latitude: {this.state.cityInfo.lat}, Longitude: {this.state.cityInfo.lon}
+                </Card.Text>
+              </Card.Body>
+              <Card.Img variant="bottom" src={this.state.mapUrl} />
+            </Card>
+            <Card style={{width: '50vh', margin: '4vh auto'}}>
+              <Card.Body>
+                <Card.Title>7-day Weather Forecast</Card.Title>
+              </Card.Body>
+              <ListGroup>
+                {forecastList}
+              </ListGroup>
+            </Card>
+            <Card style={{width: '50vh', margin: '4vh auto'}}>
+              <Card.Body>
+                <Card.Title>Movies related to {this.state.city}</Card.Title>
+              </Card.Body>
+              <ListGroup>
+                {movieList}
+              </ListGroup>
+            </Card>
+          </div>
         }
       </>
     )
