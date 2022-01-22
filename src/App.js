@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-import { Form, Col, Button, Card, Alert, ListGroup, Row} from 'react-bootstrap';
+import Weather from './Weather';
+import Movies from './Movies'
+import City from './City'
+import { Form, Col, Button, Alert, Row} from 'react-bootstrap';
 
 class App extends React.Component {
   constructor(props){
@@ -59,18 +62,6 @@ class App extends React.Component {
   }
 
   render() {
-    let forecastList = this.state.forecast.map((e, i) => (
-      <ListGroup.Item key={i}>
-        {e.date} . {e.description} . {e.low} / {e.high} C
-      </ListGroup.Item>
-    ))
-
-    let movieList = this.state.movies.map((e, i) => (
-      <ListGroup.Item key={i+9}>
-        {e.title} ({e.date.substring(0,4)}) Popularity: {Math.round(e.popularity)}
-      </ListGroup.Item>
-    ))
-
     return(
       <>
         <h1>Which city would you like to explore?</h1>
@@ -87,33 +78,11 @@ class App extends React.Component {
         </Form>
         {
           this.state.showCity &&
-          <div>
-            <Card style={{width: '50vh', margin: '4vh auto'}}>
-              <Card.Body>
-                <Card.Title>{this.state.cityInfo.display_name}</Card.Title>
-                <Card.Text>
-                  Latitude: {this.state.cityInfo.lat}, Longitude: {this.state.cityInfo.lon}
-                </Card.Text>
-              </Card.Body>
-              <Card.Img variant="bottom" src={this.state.mapUrl} />
-            </Card>
-            <Card style={{width: '50vh', margin: '4vh auto'}}>
-              <Card.Body>
-                <Card.Title>7-day Weather Forecast</Card.Title>
-              </Card.Body>
-              <ListGroup>
-                {forecastList}
-              </ListGroup>
-            </Card>
-            <Card style={{width: '50vh', margin: '4vh auto'}}>
-              <Card.Body>
-                <Card.Title>Movies related to {this.state.city}</Card.Title>
-              </Card.Body>
-              <ListGroup>
-                {movieList}
-              </ListGroup>
-            </Card>
-          </div>
+          <section>
+            <City cityInfo={this.state.cityInfo} mapUrl={this.state.mapUrl} />
+            <Weather forecast={this.state.forecast} />
+            <Movies city={this.state.city} movies={this.state.movies} />
+          </section>
         }
       </>
     )
