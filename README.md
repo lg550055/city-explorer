@@ -1,55 +1,35 @@
 # City Explorer
 
 **Author**: Polo Gonzalez
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.0.0 
 
 ## Overview
-City Explorer allows the user to enter a city of interest and see the latitute, longitud and a map of the city.
+City Explorer provides a user with information on a city of interest.  Information includes map, latitude, longitude, weather forecast and movies related to the city.
 
 ## Getting Started
-Find dependencies on package.json
+Find dependencies on package.json (including React, react-bootstrap and axios)
 May use: npm build
 Then: npm start  to run
 
 ## Architecture
-[High level whiteboard](./whiteboard.png)
+[High level whiteboard](./whiteboard.png) -NEEDS UPDATE
 
-Responsive application built with React, and react-bootstrap.
+Responsive application built with React, and react-bootstrap.  Separates into components each different request for information, for example the Weather component fetches and displays the weather forecast.
 
-Uses axios package to fetch API information for the relevant city from LocationIQ.
+Uses axios package to fetch API latitude, longitude and map information from LocationIQ.  Uses static maps from LocationIQ to display map of the relevant city.
 
-Uses static maps from LocationIQ to display map of the relevant city.
+It also Uses axios to fetch API weather forecast and movie information from its sibling backend server (which in turn gets the information from other APIs).
 
 ## Change Log
-1/17/2022 11pm - MVP + error handling
+1/17/2022 - MVP (latitude, longitude and map) + error handling
+1/21/2122 - Weather forecast and movies features and fully deployed refactored into components
 
 ## Credit and Collaborations
 Ryan Gallaway - Instructor
+Riva Davidowski - TA
 
 ---
 
-## Time Estimates
+## Backend project
 
-Name of feature: 1. Set up repository and API keys
-Estimate of time needed to complete: 45 min
-Start time: 3:30pm
-Finish time: 4:30pm
-Actual time needed to complete: 60 min
-
-Name of feature: 2. Display lat and long
-Estimate of time needed to complete: 60 min
-Start time: 4:30pm
-Finish time: 6:00pm?
-Actual time needed to complete: 90 min
-
-Name of feature: 3. Display map
-Estimate of time needed to complete: 45 min
-Start time: 9pm
-Finish time: 10pm
-Actual time needed to complete: 60 min
-
-Name of feature: 4. Error handling
-Estimate of time needed to complete: 45 min
-Start time: 10pm
-Finish time: 10:30pm
-Actual time needed to complete: 30 min
+https://github.com/lg550055/city-explorer-api
