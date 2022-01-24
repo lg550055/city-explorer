@@ -7,9 +7,9 @@
 City Explorer provides a user with information on a city of interest.  Information includes map, latitude, longitude, weather forecast and movies related to the city.
 
 ## Getting Started
-Find dependencies on package.json (including React, react-bootstrap and axios)
-May use: npm build
-Then: npm start  to run
+- Find dependencies on package.json (including React, react-bootstrap and axios)
+- May use: npm build
+- Then: npm start  to run
 
 ## Architecture
 [High level whiteboard](./whiteboard.png) -NEEDS UPDATE
@@ -21,12 +21,12 @@ Uses axios package to fetch API latitude, longitude and map information from Loc
 It also Uses axios to fetch API weather forecast and movie information from its sibling backend server (which in turn gets the information from other APIs).
 
 ## Change Log
-1/17/2022 - MVP (latitude, longitude and map) + error handling
-1/21/2122 - Weather forecast and movies features and fully deployed refactored into components
+- 1/17/2022 - MVP (latitude, longitude and map) + error handling
+- 1/21/2122 - Weather forecast and movies features and fully deployed refactored into components
 
 ## Credit and Collaborations
-Ryan Gallaway - Instructor
-Riva Davidowski - TA
+- Ryan Gallaway - Instructor
+- Riva Davidowski - TA
 
 ---
 
