@@ -12,7 +12,7 @@ City Explorer provides a user with information on a city of interest.  Informati
 - Then: npm start  to run
 
 ## Architecture
-[High level whiteboard](./whiteboard.png) -NEEDS UPDATE
+[High level whiteboard](./whiteboard.png)
 
 Responsive application built with React, and react-bootstrap.  Separates into components each different request for information, for example the Weather component fetches and displays the weather forecast.
 
